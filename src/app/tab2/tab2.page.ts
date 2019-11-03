@@ -14,7 +14,7 @@ export class Tab2Page {
   textoBuscar = '';
   buscando = false;
   peliculas: Pelicula[] = [];
-  ideas: string[] = ['Spiderman', 'Avenger', 'El señor de los anillos', 'La vida es bella'];
+  ideas: string[] = ['Pretty woman', 'Shrek', 'La bella y la bestia', 'Sherlock Holmes','Coraline','Steven Universe'];
 
   constructor( private moviesService: MoviesService,
                private modalCtrl: ModalController) { }

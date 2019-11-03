@@ -40,6 +40,9 @@ export class MoviesService {
     return this.ejecutarQuery(`/search/movie?query=${ texto }`);
 
   }
+  getDirector(){
+
+  }
 
 
 
@@ -77,6 +80,17 @@ export class MoviesService {
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/credits?a=1`);
   }
 
+  getSimilarMovies(id: string){
+     return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/similar?a=1`);
+  }
+
+  getVideos(id:string){
+    return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/videos?a=1`);
+  }
+
+  getPerson(person_id){
+    return this.ejecutarQuery<RespuestaCredits>(`/person/${ person_id }?a=1`);
+  }
 
   cargarGeneros(): Promise<Genre[]> {
 

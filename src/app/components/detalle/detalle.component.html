@@ -100,9 +100,24 @@
   </ion-toolbar>
 </ion-footer> -->
 
+<ion-header translucent="true"  no-border>
+  <ion-toolbar color="light" transparent>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon slot="start" name="arrow-round-back"  style="color:yellow !important;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
 
 
-<ion-content>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content fullscreen="true" style="margin-top:-5em;">
     <div *ngIf="!pelicula.title">
       <h2 text-center>No hay datos</h2>
       <p  text-center>Revisa tu conexión a internet o vuelve a intentar.</p>
@@ -110,7 +125,7 @@
     <div *ngIf="pelicula.title">
   
    
-  <div *ngIf="mostrar"  style="background:#f0f4f8;" class="animated fadeIn slow">
+  <div *ngIf="mostrar"  style="margin-top:-5em;background:#f0f4f8;" class="animated fadeIn slow" >
   <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path">
 
   <ion-grid>
@@ -160,6 +175,38 @@
 
   </ion-grid>
 
+  <ion-row text-center>
+    <ion-col style="color:blue;">
+      <ion-icon name="calendar" style="zoom:2.0;color:blue;"></ion-icon>
+      <p>{{ pelicula.release_date | date:'dd/MM/yyyy'}}</p>
+    </ion-col>
+     <ion-col >
+      <ion-icon name="film" style="zoom:2.0;color:#17202F;"></ion-icon>
+      <p><b>{{ director }}</b></p>
+    </ion-col>
+    <ion-col style="color:green;">
+      <ion-icon name="time" style="zoom:2.0;color:green;"></ion-icon>
+      <p>{{pelicula.runtime }} Min.</p>
+    </ion-col>
+  </ion-row>
+
+
+      <ion-row text-center style="margin-top: 1em">
+        <ion-col></ion-col>
+        <ion-col>
+         <ion-buttons >
+          <ion-button (click)="favorito()">
+            <span>
+             <ion-icon text-center [name]="estrella" style="zoom:2.0;color:yellow;"></ion-icon>
+             <br>
+             <p text-center>Proponer</p>
+            </span>
+           
+                      </ion-button>
+         </ion-buttons>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
 
   <ion-grid fixed>
     <ion-row>
@@ -172,7 +219,7 @@
   <ion-slides [options]="slideOptActores">
     <ion-slide *ngFor="let actor of actores">
       
-      <ion-card class="card-actor animated delay-1s fadeIn slow">
+      <ion-card class="card-actor animated delay-1s fadeIn slow" (click)="showActor(actor.id)">
         <img *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
         <img *ngIf="actor.profile_path" [src]="actor.profile_path | imagen">
 
@@ -181,10 +228,45 @@
       </ion-card>
 
     </ion-slide>
-  </ion-slides>  
+  </ion-slides>
+
+<ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h4>Peliculas Similares</h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-slides [options]="slideOptSimilares">
+    <ion-slide *ngFor="let similar of similares">
+      
+      <ion-card class="card-actor animated delay-1s fadeIn slow" (click)="showMovie(similar.id)">
+        <img *ngIf="!similar.backdrop_path" src="/assets/no-avatar.jpg">
+        <img *ngIf="similar.backdrop_path" [src]="similar.backdrop_path | imagen">
+
+        <ion-label class="actor-name"><b> {{ similar.title }}</b></ion-label>
+
+      </ion-card>
+
+    </ion-slide>
+  </ion-slides> 
+
+
+ <!--   <ion-card class=" animated delay-1s fadeIn slow">
+        <img *ngIf="!director.profile_path" src="/assets/no-avatar.jpg">
+        <img *ngIf="director.profile_path" [src]="director.profile_path | imagen">
+
+        <ion-label class="actor-name"><b> {{ director.name }}</b></ion-label>
+
+   </ion-card> -->
+
+
+
+
+
   </div>
 
-  <div *ngIf="!mostrar">
+  <div *ngIf="!mostrar" style="margin-top:-5em">
     
   <div class="image-content animated delay-1s flash slow infinite"></div>
 
@@ -250,22 +332,5 @@
 
 
 <ion-footer no-border>
-  <ion-toolbar>
-
-    <ion-buttons slot="start">
-      <ion-button (click)="regresar()">
-        <ion-icon slot="start" name="arrow-round-back"></ion-icon>
-        <ion-label>Regresar</ion-label>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-buttons slot="end">
-      <ion-button (click)="favorito()">
-        <ion-label>Favorito</ion-label>
-        <ion-icon slot="end" [name]="estrella"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-
-  </ion-toolbar>
+  
 </ion-footer>

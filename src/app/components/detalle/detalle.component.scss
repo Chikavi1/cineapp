@@ -21,6 +21,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
+ion-toolbar {
+   --background-color: transparent;
+   --ion-color-base: transparent !important;
+ }
+
 .titulo h1{
     position: absolute;
     top: 28px;

@@ -13,7 +13,7 @@
 
 </ion-header>
 
-<ion-content fullscreen style="margin-top:-5em;font-weight: bold !important;">
+<ion-content fullscreen style="margin-top:-5em;font-weight: bold !important;max-height: 110%;">
  		
 
     <!--<img [src]="actor.profile_path | imagen" *ngIf="actor.profile_path" style="margin-top:-5em;" >
@@ -22,15 +22,13 @@
 z-index: 1;
 margin-top:-5em;}
 background-size: cover;
-height: 130%;
+height: 115%;
 position: relative;
 filter:grayscale(100%);
 filter:brightness(0.33);
  "
 
 	 [src]="actor.profile_path | imagen" *ngIf="actor.profile_path">
-
-
 <div style="position: absolute;
   z-index: 2;
   top: 0;
@@ -38,27 +36,51 @@ filter:brightness(0.33);
   right: 0;
   margin: 0 auto;
   color:#EDF7F6;
-  max-height:110%;
+  max-height:115%;">
+	<h2 text-center style="color:#008921;"><b>{{actor.name}}</b></h2>
+</div >
+
+<div style="position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color:#EDF7F6;
+  max-height:115%;
   overflow: scroll;">
-	
-  <h2 text-center style="color:#008921;">{{actor.name}}</h2>
-  <hr>
+  
+  <ion-row>
+  	<ion-col >
+  		<div text-center style="display: block;
+  vertical-align: middle;">
+			<h3 class="gold">Fecha de Nacimiento</h3>
+			<p *ngIf="actor.birthday">{{actor.birthday | date:'dd/MM/yyyy'}}</p>
+			<p *ngIf="!actor.birthday">-</p>
+			<p></p>
+		</div>
+  	</ion-col>
+  		<ion-col >
+  		<div text-center style="display: block;
+  vertical-align: middle;">
+			<h3 class="gold">Fecha de Fallecimiento</h3>
+			<p *ngIf="actor.deathday">{{actor.deathday | date:'dd/MM/yyyy'}}</p>
+			<p *ngIf="!actor.deathday">No ha fallecido.</p>
+		</div>
+  		</ion-col>
+	</ion-row>
 
-	<div text-center>
-		<h3 class="gold">Fecha de Nacimiento</h3>
-		<p>{{actor.birthday | date:'dd/MM/yyyy'}}</p>
+	<ion-row>
+  	<ion-col >
+  			<div  text-center style="display: block;
+  vertical-align: middle;">
+		<h3 class="gold" >Ciudad</h3>
+		<p *ngIf="actor.place_of_birth">{{actor.place_of_birth}}</p>
+		<p *ngIf="!actor.place_of_birth">-</p>
 	</div>
-	<div text-center *ngIf="actor.deathday">
-		<h3 class="gold">Fecha de Fallecimiento</h3>
-		<p>{{actor.deathday | date:'dd/MM/yyyy'}}</p>
-	</div>
-
-	<div *ngIf="actor.place_of_birth" text-center>
-		<h4 class="gold" >Lugar de nacimiento</h4>
-		<p>{{actor.place_of_birth}}</p>
-	</div>
-	
-	<div *ngIf="actor.gender" text-center>
+  	</ion-col>
+  	<ion-col >
+  		<div *ngIf="actor.gender" text-center style="display: block;
+  vertical-align: middle;">
 		<h3 text-center class="gold">Sexo</h3>
 		<p *ngIf="actor.gender === 2">
 			Masculino
@@ -67,12 +89,9 @@ filter:brightness(0.33);
 			Feminino
 		</p>
 	</div>
+  	</ion-col>
+  </ion-row>
 
-	
-	<div *ngIf="actor.biography" style="padding:2em!important;">
-		<h3 text-center class="gold">Biografia</h3>
-		<p style="text-align: justify;">{{actor.biography}}</p>
-	</div>
 	</div>
 
 </ion-content>

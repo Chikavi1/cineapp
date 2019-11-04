@@ -4,6 +4,7 @@ import { PeliculaDetalle, Cast } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
 import { ActorComponent } from '../actor/actor.component';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle',
@@ -37,7 +38,8 @@ slideOptSimilares  = {
 }
   constructor( private moviesService: MoviesService,
                private modalCtrl: ModalController,
-               private dataLocal: DataLocalService ) {
+               private dataLocal: DataLocalService,
+               public toastController: ToastController ) {
              setTimeout(() => {
              this.mostrar = true;
             }, 2200);
@@ -55,6 +57,15 @@ slideOptSimilares  = {
     });
 
     modal.present();
+  }
+
+
+  async mostrar_toast(texto) {
+    const toast = await this.toastController.create({
+      message: texto,
+      duration: 2000
+    });
+    toast.present();
   }
 
   async showMovie(id){

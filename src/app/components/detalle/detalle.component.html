@@ -174,17 +174,26 @@
     </ion-row>
 
   </ion-grid>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col style="color:#17202F;" text-center>
+      <h2 >Fechas en carteleraCUT</h2>
+      <ion-icon name="calendar" style="zoom:3.0;color:#17202F;"></ion-icon>
+      <p><b>{{ pelicula.release_date | date:'dd/MM/yyyy'}}</b></p>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 
   <ion-row text-center>
-    <ion-col style="color:blue;">
+    <ion-col style="color:blue;"  (click)="mostrar_toast('La pelicula se lanzo ese dia.')">
       <ion-icon name="calendar" style="zoom:2.0;color:blue;"></ion-icon>
       <p>{{ pelicula.release_date | date:'dd/MM/yyyy'}}</p>
     </ion-col>
-     <ion-col >
+     <ion-col (click)="mostrar_toast('El director de la pelicula es '+director+'.')" >
       <ion-icon name="film" style="zoom:2.0;color:#17202F;"></ion-icon>
       <p><b>{{ director }}</b></p>
     </ion-col>
-    <ion-col style="color:green;">
+    <ion-col style="color:green;" (click)="mostrar_toast('La pelicula dura '+pelicula.runtime+' minutos.')">
       <ion-icon name="time" style="zoom:2.0;color:green;"></ion-icon>
       <p>{{pelicula.runtime }} Min.</p>
     </ion-col>
@@ -196,13 +205,9 @@
         <ion-col>
          <ion-buttons >
           <ion-button (click)="favorito()">
-            <span>
              <ion-icon text-center [name]="estrella" style="zoom:2.0;color:yellow;"></ion-icon>
-             <br>
              <p text-center>Proponer</p>
-            </span>
-           
-                      </ion-button>
+          </ion-button>
          </ion-buttons>
         </ion-col>
         <ion-col></ion-col>

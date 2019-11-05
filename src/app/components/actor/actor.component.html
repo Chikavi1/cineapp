@@ -37,7 +37,7 @@ filter:brightness(0.33);
   margin: 0 auto;
   color:#EDF7F6;
   max-height:115%;">
-	<h2 text-center style="color:#008921;"><b>{{actor.name}}</b></h2>
+	<h1 text-center style="color:#008921;"><b>{{actor.name}}</b></h1>
 </div >
 
 <div style="position: absolute;
@@ -53,7 +53,7 @@ filter:brightness(0.33);
   	<ion-col >
   		<div text-center style="display: block;
   vertical-align: middle;">
-			<h3 class="gold">Fecha de Nacimiento</h3>
+			<h3 class="gold">Nacimiento</h3>
 			<p *ngIf="actor.birthday">{{actor.birthday | date:'dd/MM/yyyy'}}</p>
 			<p *ngIf="!actor.birthday">-</p>
 			<p></p>
@@ -62,7 +62,7 @@ filter:brightness(0.33);
   		<ion-col >
   		<div text-center style="display: block;
   vertical-align: middle;">
-			<h3 class="gold">Fecha de Fallecimiento</h3>
+			<h3 class="gold">Fallecimiento</h3>
 			<p *ngIf="actor.deathday">{{actor.deathday | date:'dd/MM/yyyy'}}</p>
 			<p *ngIf="!actor.deathday">No ha fallecido.</p>
 		</div>

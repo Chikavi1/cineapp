@@ -1,16 +1,23 @@
 
 
-<ion-content>
+<ion-content class="card-background-page">
 
   <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Películas Nuevas</h3>
+    <ion-row padding>
+      <ion-col size=11>
+        <h3 >Películas Nuevas</h3>
+      </ion-col>
+      <ion-col size="1">
+        <h3><ion-icon name="search" style="color:#17202D" routerLink="/tab2"></ion-icon></h3>
       </ion-col>
     </ion-row>
   </ion-grid>
 
- 
+      <h5 text-center>¡Hola {{nombre}}!</h5>
+
+  
+
+
  
   <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
   
@@ -37,6 +44,18 @@
   <app-slideshow-pares [peliculas]="populares"
                        (cargarMas)="cargarMas()"></app-slideshow-pares>
   
+ <ion-grid fixed >
+    <ion-row>
+      <ion-col>
+        <h3>Comunidad CUT</h3>
+         <ion-card routerLink="/tab3">
+            <img src="http://cutonala.udg.mx/sites/default/files/noticias/images/unnamed_3.jpg"/>
+            <div class="card-title">Propuestas</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
 
-
+  </ion-grid>
+<ion-button (click)="cerrar_sesion()"  shape="round" expand="full" color="danger" style="margin:  2em !important;">Salir</ion-button>
 </ion-content>

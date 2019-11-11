@@ -1,30 +1,42 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
+  <h2 text-center style="margin-top: 1em;">Propuestas</h2>
+  <ion-card class="welcome-card" padding>
 
-  <ion-grid fixed>
     <ion-row>
-      <ion-col>
-        <h3>Favoritos</h3>
-      </ion-col>
+      <ion-col size="10"><h1>1.- SpiderMan</h1></ion-col>
+      <ion-col><h1 text-center>42</h1></ion-col>
     </ion-row>
-  </ion-grid>
 
-  
-  <div *ngFor="let pelicula of favoritoGenero">
-    
-    <ion-grid  *ngIf="pelicula.pelis.length > 0">
-      <ion-row>
-        <ion-col>
-          <h4>{{ pelicula.genero }}</h4>
-        </ion-col>
-      </ion-row>
-      
-      <app-slideshow-poster [peliculas]="pelicula.pelis"></app-slideshow-poster>
+    <ion-row>
+      <ion-col size="10"> <h2>2.- Avengers</h2></ion-col>
+      <ion-col><h2 text-center>39</h2></ion-col>
+    </ion-row>
 
-    </ion-grid>
-    
-    
+    <ion-row>
+      <ion-col size="10"><h3>3.- Avatar</h3></ion-col>
+      <ion-col><h3 text-center>31</h3></ion-col>
+    </ion-row>
 
-  </div>
+    <ion-row>
+      <ion-col size="10"><h4>4.- Orgullo y Prejuicio</h4></ion-col>
+      <ion-col><h4 text-center>23</h4></ion-col>
+    </ion-row>
 
+       
+    <ion-row>
+      <ion-col size="10"><h5>5.- Sherk</h5></ion-col>
+      <ion-col><h5 text-center>17 </h5></ion-col>
+    </ion-row>
+
+ 
+  </ion-card>
 
 </ion-content>

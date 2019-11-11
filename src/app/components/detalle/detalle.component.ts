@@ -5,6 +5,8 @@ import { ModalController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
 import { ActorComponent } from '../actor/actor.component';
 import { ToastController } from '@ionic/angular';
+import {DomSanitizer} from '@angular/platform-browser';
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
 @Component({
   selector: 'app-detalle',
@@ -24,7 +26,7 @@ export class DetalleComponent implements OnInit {
   similares = {};
   director;
   video;
-
+  videoUrl;
   slideOptActores = {
     slidesPerView: 2.97,
     freeMode: true,
@@ -36,17 +38,23 @@ slideOptSimilares  = {
     freeMode: true,
     spaceBetween: 0
 }
-  constructor( private moviesService: MoviesService,
+  constructor( private videoPlayer: VideoPlayer,
+                private moviesService: MoviesService,
                private modalCtrl: ModalController,
                private dataLocal: DataLocalService,
-               public toastController: ToastController ) {
+               public toastController: ToastController,public sanitizer: DomSanitizer ) {
+            
              setTimeout(() => {
              this.mostrar = true;
             }, 2200);
 
 
                 }
-                
+            
+   sanitize(videourl){
+     return this.sanitizer.bypassSecurityTrustResourceUrl(videourl);
+   }      
+
   async showActor(id){
 
       const modal = await this.modalCtrl.create({
@@ -89,10 +97,16 @@ slideOptSimilares  = {
 
   ngOnInit() {
     // console.log('ID', this.id );
+    this.moviesService.getVideos(this.id).subscribe( resp => {
+            if(resp.results[0].key){
+            this.videoUrl = "https://www.youtube.com/watch?v="+resp.results[0].key;
+          }
+        });
+
 
     this.dataLocal.existePelicula( this.id )
-      .then( existe => this.estrella = ( existe ) ? 'star' : 'star-outline' );
-
+      .then( existe => this.estrella = ( existe ) ? 'remove' : 'bookmark' );
+      
      this.moviesService.getSimilarMovies(this.id).subscribe( resp => {
          console.log("similar");
           console.log( resp['results']   );
@@ -130,7 +144,7 @@ slideOptSimilares  = {
 
   favorito() {
     const existe = this.dataLocal.guardarPelicula( this.pelicula );
-    this.estrella = ( existe ) ? 'star' : 'star-outline';
+    this.estrella = ( existe ) ? 'remove' : 'bookmark';
   }
 
 }

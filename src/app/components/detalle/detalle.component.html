@@ -101,7 +101,7 @@
 </ion-footer> -->
 
 <ion-header translucent="true"  no-border>
-  <ion-toolbar color="light" transparent>
+  <ion-toolbar color="light" transparent style="margin-top:.74em;">
 
     <ion-buttons slot="start">
       <ion-button (click)="regresar()">
@@ -126,7 +126,7 @@
   
    
   <div *ngIf="mostrar"  style="margin-top:-5em;background:#f0f4f8;" class="animated fadeIn slow" >
-  <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path">
+  <img [src]="pelicula.backdrop_path | imagen" class="cover" *ngIf="pelicula.backdrop_path">
 
   <ion-grid>
     <ion-row>
@@ -200,23 +200,33 @@
   </ion-row>
 
 
-      <ion-row text-center style="margin-top: 1em">
-        <ion-col></ion-col>
+      <ion-row text-center style="margin-top: 1em;padding: 0 1.8em;">
+        <ion-col >
+          <ion-buttons >
+          <ion-button (click)="favorito()"  >
+              <ion-icon  [name]="estrella"  style="zoom:2.0;color:green;text-align: center;"></ion-icon>
+          </ion-button>
+          </ion-buttons>
+        </ion-col>
         <ion-col>
          <ion-buttons >
-          <ion-button (click)="favorito()">
-             <ion-icon text-center [name]="estrella" style="zoom:2.0;color:yellow;"></ion-icon>
+          <ion-button style="color:orange;">
              <p text-center>Proponer</p>
           </ion-button>
          </ion-buttons>
         </ion-col>
-        <ion-col></ion-col>
+        <ion-col>
+           <div *ngIf="videoUrl">
+            <a [href]="videoUrl" ion-button style="color:red;"><ion-icon name="logo-youtube" style="zoom:2.0;"></ion-icon></a>
+          </div>
+        </ion-col>
       </ion-row>
+
 
   <ion-grid fixed>
     <ion-row>
       <ion-col>
-        <h4>Actores</h4>
+        <h4 text-center>Actores</h4>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -238,7 +248,7 @@
 <ion-grid fixed>
     <ion-row>
       <ion-col>
-        <h4>Peliculas Similares</h4>
+        <h4 text-center>Peliculas Similares</h4>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -273,7 +283,7 @@
 
   <div *ngIf="!mostrar" style="margin-top:-5em">
     
-  <div class="image-content animated delay-1s flash slow infinite"></div>
+  <div class="image-content  animated delay-1s flash slow infinite"></div>
 
    <ion-grid>
     <ion-row>

@@ -48,4 +48,9 @@ export class Tab3Page {
 
   }
 
+  ionViewDidEnter() {
+  }
+
+
+
 }

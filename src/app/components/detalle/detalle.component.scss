@@ -5,7 +5,9 @@
     left: -10px;
     margin-bottom: -75px;
 }
-
+.cover{
+mask-image: linear-gradient(to bottom, #f0f4f8, transparent);   
+}
 .titulo {
     width: 100%;
     position: absolute;
@@ -43,7 +45,7 @@ ion-toolbar {
 .image-content{
     width: auto;
     background: #e6e6e6;
-    height: 13em;
+    height: 15em;
 }
 
 .poster_content{

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
+import { NavController } from "@ionic/angular";
 import { Pelicula } from '../interfaces/interfaces';
+import { ModalController } from '@ionic/angular';
+import { Tab3Page } from '../tab3/tab3.page';
 
 @Component({
   selector: 'app-tab1',
@@ -11,12 +14,29 @@ export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
   populares: Pelicula[] = [];
-
-  constructor( private moviesService: MoviesService ) {
-
+  nombre;
+  constructor( private moviesService: MoviesService,private modalCtrl: ModalController,public navCtrl: NavController) {
+    this.nombre = localStorage.getItem("nombre");
   }
 
+ async verDetalle( id: string ) {
 
+    const modal = await this.modalCtrl.create({
+      component: Tab3Page,
+      componentProps: {
+        id
+      }
+    });
+    
+    modal.present();
+  
+  }
+
+cerrar_sesion(){
+  this.navCtrl.navigateRoot("/login");
+  localStorage.removeItem("clave");
+  localStorage.removeItem("nombre");
+}
   ngOnInit() {
     this.moviesService.getFeature()
       .subscribe( resp => {

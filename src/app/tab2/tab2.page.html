@@ -1,22 +1,23 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title text-center>
-      Buscar Película
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-toolbar>
+
+
+<ion-content >
+ <ion-toolbar style="padding: 2em;">
   <ion-searchbar placeholder="Buscar película"
                  animated
                  debounce="700"
                  [value]="textoBuscar"
-                 (ionChange)="buscar( $event )"></ion-searchbar>
+                 (ionChange)="buscar( $event )">
+                   
+  </ion-searchbar>
 </ion-toolbar>
-
-
-
-<ion-content>
 
   <ion-grid *ngIf="buscando">
     <ion-row>
@@ -27,24 +28,20 @@
   </ion-grid>
 
 
-  <ion-list *ngIf="peliculas.length === 0">
-    <ion-list-header>
-      <ion-label>Ideas</ion-label>
-    </ion-list-header>
-    
-    <ion-item *ngFor="let idea of ideas"
-              (click)="textoBuscar = idea">
-      <ion-label color="primary">{{ idea }}</ion-label>
+  <ion-list text-center *ngIf="peliculas.length === 0">     
+    <ion-item *ngFor="let idea of ideas" style="padding: 0 2em;"
+              (click)="textoBuscar = idea" class="animated  flash slow infinite">
+      <ion-label color="primary" text-center>{{ idea }}</ion-label>
     </ion-item>
 
   </ion-list>
 
 
-  <ion-grid fixed>
+  <ion-grid fixed >
     <ion-row>
-      <ion-col size="6" *ngFor="let pelicula of peliculas">
+      <ion-col size="6" *ngFor="let pelicula of peliculas"  >
 
-        <ion-card (click)="detalle( pelicula.id )">
+        <ion-card (click)="detalle( pelicula.id )" >
           <img [src]="pelicula.poster_path | imagen">
 
           <ion-card-header>

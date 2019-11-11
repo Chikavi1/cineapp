@@ -11,14 +11,14 @@ export class LoginPage implements OnInit {
 
  codigo:any;
  nip:any;
-  constructor(public authService:AuthService,public navCtrl: NavController) { }
+  constructor(public authService:AuthService,public navCtrl: NavController,public alertController:AlertController) { }
 
   ngOnInit() {
   }
 
    ingresar(){
 
-    this.navCtrl.navigateRoot('/');
+    this.navCtrl.navigateRoot('/tab1');
   }
 
   login(){	
@@ -29,9 +29,9 @@ export class LoginPage implements OnInit {
     	if(data._body == "incorrecto"){
             console.log("error");
             element.disabled = false;
-            //m
+            this.presentAlert("Error","Verifica tu código y nip");
           }else{
-          	//m
+          	this.presentAlert("Bienvenido","¡Hola "+data._body+" !");
             localStorage.setItem("clave",this.codigo);
             localStorage.setItem("nombre",data._body);
             this.ingresar();
@@ -39,6 +39,16 @@ export class LoginPage implements OnInit {
     })
 
           }
+
+  async presentAlert(status,mensaje) {
+    const alert = await this.alertController.create({
+      header: status,
+      message: mensaje,
+      buttons: ['Entendido']
+    });
+
+    await alert.present();
+  }
 
 }
 

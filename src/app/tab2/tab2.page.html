@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-toolbar>
+  <ion-toolbar style="margin-top:.90em;">
     <ion-buttons slot="start">
       <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
     </ion-buttons>
@@ -8,7 +8,7 @@
 
 
 
-<ion-content >
+<ion-content  class="ios" >
  <ion-toolbar style="padding: 2em;">
   <ion-searchbar placeholder="Buscar película"
                  animated
@@ -41,7 +41,7 @@
     <ion-row>
       <ion-col size="6" *ngFor="let pelicula of peliculas"  >
 
-        <ion-card (click)="detalle( pelicula.id )" >
+        <ion-card (click)="detalle( pelicula.id )" class="ios" >
           <img [src]="pelicula.poster_path | imagen">
 
           <ion-card-header>

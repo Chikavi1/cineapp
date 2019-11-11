@@ -85,7 +85,7 @@ export class MoviesService {
   }
 
   getVideos(id:string){
-    return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/videos?a=1`);
+    return this.ejecutarQuery<any>(`/movie/${ id }/videos?a=1`);
   }
 
   getPerson(person_id){

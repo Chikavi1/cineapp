@@ -1,7 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { LoadingController, AlertController, NavController } from "@ionic/angular";
 import { AuthService } from 'src/app/services/auth.service';
-import {Tab1Page} from '../tab1/tab1.page.ts';
 
 @Component({
   selector: 'app-login',

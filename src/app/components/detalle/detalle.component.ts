@@ -6,7 +6,6 @@ import { DataLocalService } from 'src/app/services/data-local.service';
 import { ActorComponent } from '../actor/actor.component';
 import { ToastController } from '@ionic/angular';
 import {DomSanitizer} from '@angular/platform-browser';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
 @Component({
   selector: 'app-detalle',
@@ -38,8 +37,7 @@ slideOptSimilares  = {
     freeMode: true,
     spaceBetween: 0
 }
-  constructor( private videoPlayer: VideoPlayer,
-                private moviesService: MoviesService,
+  constructor( private moviesService: MoviesService,
                private modalCtrl: ModalController,
                private dataLocal: DataLocalService,
                public toastController: ToastController,public sanitizer: DomSanitizer ) {
@@ -51,9 +49,7 @@ slideOptSimilares  = {
 
                 }
             
-   sanitize(videourl){
-     return this.sanitizer.bypassSecurityTrustResourceUrl(videourl);
-   }      
+   
 
   async showActor(id){
 

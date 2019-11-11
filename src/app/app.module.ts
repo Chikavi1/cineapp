@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    VideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
   ],

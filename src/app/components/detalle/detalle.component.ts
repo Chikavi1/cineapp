@@ -6,6 +6,7 @@ import { DataLocalService } from 'src/app/services/data-local.service';
 import { ActorComponent } from '../actor/actor.component';
 import { ToastController } from '@ionic/angular';
 import {DomSanitizer} from '@angular/platform-browser';
+import { FechascutPage } from 'src/app/fechascut/fechascut.page';
 
 @Component({
   selector: 'app-detalle',
@@ -14,8 +15,9 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class DetalleComponent implements OnInit {
 
-  @Input() id;
-
+  @Input() dia_cut;
+  @Input() hora_cut;
+  
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
   oculto = 150;
@@ -41,7 +43,9 @@ slideOptSimilares  = {
                private modalCtrl: ModalController,
                private dataLocal: DataLocalService,
                public toastController: ToastController,public sanitizer: DomSanitizer ) {
-            
+            var dia = new Date(this.dia_cut);
+            console.log(this.dia_cut);
+
              setTimeout(() => {
              this.mostrar = true;
             }, 2200);
@@ -49,7 +53,18 @@ slideOptSimilares  = {
 
                 }
             
-   
+   async mostrarfechas(dia_cut,hora_cut){
+
+      const modal = await this.modalCtrl.create({
+      component: FechascutPage,
+      componentProps: {
+        dia_cut,
+        hora_cut
+      }
+    });
+
+    modal.present();
+  }
 
   async showActor(id){
 
@@ -132,6 +147,17 @@ slideOptSimilares  = {
           this.actores = resp.cast;
         });
 
+  }
+
+  proponer(id){
+    console.log("porponer");
+    console.log(id);
+    console.log(localStorage.getItem("clave"));
+
+    this.moviesService.votarCartelera(id,localStorage.getItem("clave"))
+      .subscribe( resp =>{
+        this.mostrar_toast(resp)
+    });
   }
 
   regresar() {

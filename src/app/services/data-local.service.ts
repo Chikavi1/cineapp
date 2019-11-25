@@ -38,10 +38,10 @@ export class DataLocalService {
 
     if ( existe ) {
       this.peliculas = this.peliculas.filter( peli => peli.id !== pelicula.id );
-      mensaje = 'Removido de favoritos';
+      mensaje = 'Removido de Guardados';
     } else {
       this.peliculas.push( pelicula );
-      mensaje = 'Agregada a favoritos';
+      mensaje = 'Agregada a Guardados';
     }
 
 

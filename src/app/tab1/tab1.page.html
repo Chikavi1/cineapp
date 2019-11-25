@@ -2,35 +2,37 @@
 
 <ion-content class="card-background-page">
 
-  <ion-grid fixed>
-    <ion-row padding>
-      <ion-col size=11>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Baja para actualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
 
+  <ion-grid fixed>
+    <ion-row padding >
+      <ion-col size="8" >
+          <h3 >Cartelera Cut</h3>
       </ion-col>
-      <ion-col size="1">
-        <h3><ion-icon name="search" style="color:#17202D" routerLink="/tab2"></ion-icon></h3>
+      <ion-col size="4" text-right>
+        <h3>
+          <ion-icon routerLink="/guardados" name="bookmark" style="color:#265B75;zoom:1.4;vertical-align: middle;display: inline-block;"></ion-icon>
+          <ion-icon name="search" style="color:#17202D;zoom:1.4;vertical-align: middle;display: inline-block" routerLink="/tab2">
+          </ion-icon>
+        </h3>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-      <h5 text-center>¡Hola {{nombre}}!</h5>
 
-  
-
-
+  <app-slideshow-cut [peliculas]="peliculas"></app-slideshow-cut>
+ <!-- <h3>Cartelera en los cines</h3>
  
-  <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
+  -->
   
   
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3 text-center>Cartelera</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <app-slideshow-poster [peliculas]="peliculasRecientes"></app-slideshow-poster>
   
   
   <ion-grid fixed>
@@ -50,11 +52,17 @@
         <h3 text-center>Comunidad CUT</h3>
          <ion-card routerLink="/tab3">
             <img src="http://cutonala.udg.mx/sites/default/files/noticias/images/unnamed_3.jpg"/>
-            <div class="card-title">Propuestas</div>
+            <div class="card-title">Votos</div>
         </ion-card>
       </ion-col>
     </ion-row>
   
+  <ion-item routerLink="/guardados">
+    <ion-label style="vertical-align: middle;display: inline-block;">
+      <ion-icon name="bookmark" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
+      <b>Guardados</b>
+    </ion-label>
+</ion-item>
 
   </ion-grid>
 <ion-button (click)="cerrar_sesion()"  shape="round" expand="full" color="danger" style="margin:  2em !important;">Salir</ion-button>

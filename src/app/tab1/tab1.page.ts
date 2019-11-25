@@ -15,6 +15,7 @@ export class Tab1Page implements OnInit {
   peliculasRecientes: Pelicula[] = [];
   populares: Pelicula[] = [];
   nombre;
+  peliculas;
   constructor( private moviesService: MoviesService,private modalCtrl: ModalController,public navCtrl: NavController) {
     this.nombre = localStorage.getItem("nombre");
   }
@@ -31,6 +32,17 @@ export class Tab1Page implements OnInit {
     modal.present();
   
   }
+doRefresh(event) {
+    this.moviesService.getCarteleraCut().subscribe( data => {
+      console.log("cartelera cut")
+     this.peliculas = data;
+     console.log(data);
+    });
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 1600);
+  }
 
 cerrar_sesion(){
   this.navCtrl.navigateRoot("/login");
@@ -38,6 +50,13 @@ cerrar_sesion(){
   localStorage.removeItem("nombre");
 }
   ngOnInit() {
+
+    this.moviesService.getCarteleraCut().subscribe( data => {
+      console.log("cartelera cut")
+     this.peliculas = data;
+     console.log(data);
+    });
+
     this.moviesService.getFeature()
       .subscribe( resp => {
         this.peliculasRecientes = resp.results;

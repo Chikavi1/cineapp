@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PeliculaDetalle, Genre } from '../interfaces/interfaces';
 import { DataLocalService } from '../services/data-local.service';
 import { MoviesService } from '../services/movies.service';
+import { ModalController } from '@ionic/angular';
+import { DetalleComponent } from '../components/detalle/detalle.component';
 
 @Component({
   selector: 'app-tab3',
@@ -14,9 +16,21 @@ export class Tab3Page {
   generos: Genre[] = [];
 
   favoritoGenero: any[] = [];
-
+  votos;
   constructor( private dataLocal: DataLocalService,
-               private moviesService: MoviesService  ) { }
+               private moviesService: MoviesService,
+               private modalCtrl: ModalController ) {
+
+        this.moviesService.getVotos().subscribe(
+          data =>{
+            this.votos = data;
+            console.log(data);
+
+          } 
+        );
+
+
+      }
 
 
   async ionViewWillEnter() {
@@ -26,6 +40,17 @@ export class Tab3Page {
     this.pelisPorGenero( this.generos, this.peliculas );
   }
 
+async verDetalle( id: string) {
+
+    const modal = await this.modalCtrl.create({
+      component: DetalleComponent,
+      componentProps: {
+         id
+      }
+    });
+
+    modal.present();
+}
 
   pelisPorGenero( generos: Genre[], peliculas: PeliculaDetalle[]  ) {
 

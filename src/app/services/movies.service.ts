@@ -40,10 +40,6 @@ export class MoviesService {
     return this.ejecutarQuery(`/search/movie?query=${ texto }`);
 
   }
-  getDirector(){
-
-  }
-
 
 
   getFeature() {
@@ -70,7 +66,16 @@ export class MoviesService {
 
 
   }
+  getCarteleraCut(){
+    return this.http.get("http://127.0.0.1:8000/api/movies");
+  }
 
+  getVotos(){
+    return this.http.get("http://127.0.0.1:8000/api/estadisticas");
+  }
+  votarCartelera(id_movie,code){
+    return this.http.get("http://127.0.0.1:8000/api/votes/create?id_movie="+id_movie+"&code="+code);
+  }
 
   getPeliculaDetalle( id: string ) {
     return this.ejecutarQuery<PeliculaDetalle>(`/movie/${ id }?a=1`);

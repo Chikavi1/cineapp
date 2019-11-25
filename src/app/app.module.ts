@@ -12,9 +12,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
-
+import { FechascutPipe } from './fechascut.pipe';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FechascutPipe],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -27,6 +28,7 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
   ],

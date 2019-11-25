@@ -27,8 +27,8 @@ export class SlideshowPosterComponent implements OnInit {
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {
-        id
-      }
+         id
+       }
     });
 
     modal.present();

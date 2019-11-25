@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-toolbar style="margin-top:1em;">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Baja para actualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<div  *ngIf="peliculas.length > 0">
+<ion-row>
+      <ion-col size="8" >
+          <h2>Guardados</h2>
+      </ion-col>
+      <ion-col size="4" text-right>
+          
+        <h3>
+          <ion-icon name="trash" style="color:red;zoom:1.4;vertical-align: middle;display: inline-block" (click)="eliminar()">
+          </ion-icon>
+        </h3>
+      </ion-col>
+</ion-row>
+</div>
+
+<div text-center *ngIf="!peliculas.length > 0">
+  <img src="./assets/libro.png" width="120" alt="">
+  <h2 >¡No tienes peliculas guardadas!</h2>
+  <p><b>Empieza a guardar tus peliculas favoritas, para despues poder ver su información.</b></p>
+  <p >ve al perfil de la pelicula y solo haz click en icono </p>
+  <h4 ><ion-icon name="bookmark" style="zoom:2.7;color:green;"></ion-icon></h4>
+</div>
+<div *ngFor="let pelicula of favoritoGenero">
+    
+    <ion-grid  *ngIf="pelicula.pelis.length > 0">
+      <ion-row>
+        <ion-col>
+          <h4>{{ pelicula.genero }}</h4>
+        </ion-col>
+      </ion-row>
+      
+      <app-slideshow-poster [peliculas]="pelicula.pelis"></app-slideshow-poster>
+
+    </ion-grid>
+    
+    
+
+  </div>
+</ion-content>

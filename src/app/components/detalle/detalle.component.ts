@@ -16,8 +16,8 @@ import { FechascutPage } from 'src/app/fechascut/fechascut.page';
 export class DetalleComponent implements OnInit {
 
   @Input() dia_cut;
-  @Input() hora_cut;
-  
+  @Input() id;
+
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
   oculto = 150;

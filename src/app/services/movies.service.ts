@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Genre } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
@@ -67,14 +67,14 @@ export class MoviesService {
 
   }
   getCarteleraCut(){
-    return this.http.get("http://127.0.0.1:8000/api/movies");
+            return this.http.get("https://assets.chikavi.com//api/movies");
   }
 
   getVotos(){
-    return this.http.get("http://127.0.0.1:8000/api/estadisticas");
+    return this.http.get("https://assets.chikavi.com//api/estadisticas");
   }
   votarCartelera(id_movie,code){
-    return this.http.get("http://127.0.0.1:8000/api/votes/create?id_movie="+id_movie+"&code="+code);
+    return this.http.get("https://assets.chikavi.com//api/votes/create?id_movie="+id_movie+"&code="+code);
   }
 
   getPeliculaDetalle( id: string ) {

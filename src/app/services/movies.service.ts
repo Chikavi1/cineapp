@@ -67,14 +67,14 @@ export class MoviesService {
 
   }
   getCarteleraCut(){
-            return this.http.get("https://assets.chikavi.com//api/movies");
+            return this.http.get("https://assets.chikavi.com/api/movies");
   }
 
   getVotos(){
-    return this.http.get("https://assets.chikavi.com//api/estadisticas");
+    return this.http.get("https://assets.chikavi.com/api/estadisticas");
   }
   votarCartelera(id_movie,code){
-    return this.http.get("https://assets.chikavi.com//api/votes/create?id_movie="+id_movie+"&code="+code);
+    return this.http.get("https://assets.chikavi.com/api/votes/create?id_movie="+id_movie+"&code="+code);
   }
 
   getPeliculaDetalle( id: string ) {

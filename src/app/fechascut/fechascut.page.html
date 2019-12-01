@@ -12,11 +12,7 @@
 <ion-content  text-center padding>
 	<ion-icon name="calendar" style="zoom:3.0;color:brown;"></ion-icon>
 	<p style="font-size: .95em;font-weight: bold;color:brown;">Dia</p>
-	<h3 style="color:brown;">{{dia_cut}}</h3>
+	<h3 style="color:brown;">{{fecha}}</h3>
 
-	<ion-icon name="time" style="zoom:3.0;color:orange"></ion-icon>
-	<p style="font-size: .95em;font-weight: bold;color:orange;">Hora</p>
-	<h4 style="color:orange;">{{ hora_cut}}</h4>
-
-	<ion-button color="success" (click)="recordar()"><ion-icon name="alarm" slot="" style="zoom:1.2;"></ion-icon> Recordarme una hora antes</ion-button>
+	<ion-button color="success" (click)="presentActionSheet()"  id="btnrecordar"> Recordarme</ion-button>
 </ion-content>

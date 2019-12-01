@@ -1,4 +1,4 @@
-<ion-header translucent="true"  no-border>
+<ion-header  no-border>
   <ion-toolbar color="light" transparent style="margin-top:.84em;">
 
     <ion-buttons slot="start">
@@ -16,14 +16,16 @@
 
 
 <ion-content fullscreen="true" style="margin-top:-5em;">
-    <div *ngIf="!pelicula.title">
-      <h2 text-center>No hay datos</h2>
-      <p  text-center>Revisa tu conexión a internet o vuelve a intentar.</p>
-    </div>
-    <div *ngIf="pelicula.title">
+   
   
    
   <div *ngIf="mostrar"  style="margin-top:-5em;background:#f0f4f8;" class="animated fadeIn slow" >
+ <div *ngIf="!pelicula.title" text-center style="margin-top: 5em;background: white;">
+      <h2>No hay datos</h2>
+      <p >Revisa tu conexión a internet o vuelve a intentar.</p>
+    </div>
+    <div *ngIf="pelicula.title">
+
   <img [src]="pelicula.backdrop_path | imagen" class="cover" *ngIf="pelicula.backdrop_path">
 <img src="https://fakeimg.pl/1200x600/0B1B2D/?text=%20" class="" *ngIf="!pelicula.backdrop_path">
   <ion-grid>
@@ -173,7 +175,7 @@
   </ion-slides> 
 </div>
 
-
+  </div>
   </div>
 
   <div *ngIf="!mostrar" style="margin-top:-5em">
@@ -236,7 +238,6 @@
   </ion-slides>
 
  </div>
-  </div>
 
 </ion-content>
 

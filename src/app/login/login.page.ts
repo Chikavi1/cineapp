@@ -26,8 +26,10 @@ export class LoginPage implements OnInit {
     element.disabled = true;
 
     this.authService.login(this.codigo,this.nip).subscribe((data)=>{
+      console.log(data._body);
     	if(data._body == "incorrecto"){
             console.log("error");
+
             element.disabled = false;
             this.presentAlert("Error","Verifica tu código y nip");
           }else{

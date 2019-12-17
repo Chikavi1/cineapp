@@ -77,7 +77,7 @@ export class FechascutPage implements OnInit {
      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzfXKe6Yfjr6rCtR6cMPJB8CqMAYWECDtDqH-eMnerHHuXv9egrw',
      attachments: ['https://image.tmdb.org/t/p/w600_and_h900_bestv2/xV53cRJDjJEyLVDDcumxx3O6CTB.jpg'],
 	   //trigger: {at: new Date(this.dia)},
-     trigger: {at: new Date(new Date().getTime() + 3600)},
+     trigger: {at: this.dia },
 	   led: 'FF0000',
 	   sound: 'file://sound.mp3',
      vibrate: true,

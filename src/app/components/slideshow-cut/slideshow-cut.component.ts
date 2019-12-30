@@ -21,14 +21,16 @@ export class SlideshowCutComponent implements OnInit {
   }
 
 
-  async verDetalle( id: string,dia_cut: string,hora_cut: string ) {
+  async verDetalle( id: string,dia_cut: string,hora_cut: string,imagen: string  ) {
 
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {
          id,
          dia_cut,
-         hora_cut
+         hora_cut,
+         imagen
+
       }
     });
 

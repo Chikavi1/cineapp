@@ -10,6 +10,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class FechascutPage implements OnInit {
 @Input() dia_cut;
 @Input() hora_cut;
+@Input() imagen;
     dia;
     fecha;
   constructor(private modalCtrl: ModalController,
@@ -20,6 +21,7 @@ export class FechascutPage implements OnInit {
   }
 
   ngOnInit() {
+    this.imagen = "https://image.tmdb.org/t/p/w500"+this.imagen;
   	this.dia = new Date(this.dia_cut);
     console.log(this.dia);
 
@@ -67,19 +69,19 @@ export class FechascutPage implements OnInit {
 
   eventRecord(hora){
 
-      this.dia.setHours(this.dia.getHours() - hora);
-      console.log(this.dia);
+    this.dia.setHours(this.dia.getHours() - hora);
+    console.log(this.dia);
 
   	this.localNotifications.schedule({
 	   title: 'Aviso de pelicula',
-     text: 'la pelicula empieza en'+ hora +' hr',
+     text: 'La pelicula empieza en '+ hora +' hr',
 	   smallIcon: 'res://calendar',
-     icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzfXKe6Yfjr6rCtR6cMPJB8CqMAYWECDtDqH-eMnerHHuXv9egrw',
-     attachments: ['https://image.tmdb.org/t/p/w600_and_h900_bestv2/xV53cRJDjJEyLVDDcumxx3O6CTB.jpg'],
+     icon: 'https://image.freepik.com/vector-gratis/ejemplo-vector-tablero-chapaleta-pelicula-icono-video-industria-cinematografica_28461-2.jpg',
+     attachments: [this.imagen],
 	   //trigger: {at: new Date(this.dia)},
      trigger: {at: this.dia },
 	   led: 'FF0000',
-	   sound: 'file://sound.mp3',
+	   sound: 'https://notificationsounds.com/soundfiles/9cf81d8026a9018052c429cc4e56739b/file-sounds-1145-when.mp3',
      vibrate: true,
      autoClear: true,
      foreground: true

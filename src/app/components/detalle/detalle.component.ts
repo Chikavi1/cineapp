@@ -17,6 +17,7 @@ export class DetalleComponent implements OnInit {
 
   @Input() dia_cut;
   @Input() id;
+  @Input() imagen;
 
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
@@ -53,13 +54,14 @@ slideOptSimilares  = {
 
                 }
             
-   async mostrarfechas(dia_cut,hora_cut){
+   async mostrarfechas(dia_cut,hora_cut,imagen){
 
       const modal = await this.modalCtrl.create({
       component: FechascutPage,
       componentProps: {
         dia_cut,
-        hora_cut
+        hora_cut,
+        imagen
       }
     });
 

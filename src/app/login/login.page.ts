@@ -26,18 +26,20 @@ export class LoginPage implements OnInit {
     element.disabled = true;
 
     this.authService.login(this.codigo,this.nip).subscribe((data)=>{
-      console.log(data._body);
-    	if(data._body == "incorrecto"){
-            console.log("error");
+      this.presentAlert("data body ", data);
 
-            element.disabled = false;
-            this.presentAlert("Error","Verifica tu código y nip");
-          }else{
-          	this.presentAlert("Bienvenido","¡Hola "+data._body+" !");
-            localStorage.setItem("clave",this.codigo);
-            localStorage.setItem("nombre",data._body);
-            this.ingresar();
-          }
+
+      console.log(data);
+    	// if(data._body == "incorrecto"){
+     //        console.log("error");
+
+     //        element.disabled = false;
+     //        this.presentAlert("Error","Verifica tu código y nip");
+     //      }else{
+     //        localStorage.setItem("clave",this.codigo);
+     //        localStorage.setItem("nombre",data._body);
+     //        this.ingresar();
+     //      }
     })
 
           }

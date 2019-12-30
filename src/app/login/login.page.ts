@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     element.disabled = true;
 
     this.authService.login(this.codigo,this.nip).subscribe((data)=>{
-      this.presentAlert("data body ", data);
+      this.presentAlert("Bienvenido ", data);
 
 
       console.log(data);

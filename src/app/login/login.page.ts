@@ -26,7 +26,6 @@ export class LoginPage implements OnInit {
     element.disabled = true;
 
     this.authService.login(this.codigo,this.nip).subscribe((data)=>{
-      this.presentAlert("Bienvenido ", data);
 
 
       console.log(data);
@@ -36,6 +35,7 @@ export class LoginPage implements OnInit {
             element.disabled = false;
             this.presentAlert("Error","Verifica tu código y nip");
           }else{
+            this.presentAlert("Bienvenido ", data);
             localStorage.setItem("clave",this.codigo);
             localStorage.setItem("nombre",data);
             this.ingresar();

@@ -30,16 +30,16 @@ export class LoginPage implements OnInit {
 
 
       console.log(data);
-    	// if(data._body == "incorrecto"){
-     //        console.log("error");
+    	if(data == "incorrecto"){
+            console.log("error");
 
-     //        element.disabled = false;
-     //        this.presentAlert("Error","Verifica tu código y nip");
-     //      }else{
-     //        localStorage.setItem("clave",this.codigo);
-     //        localStorage.setItem("nombre",data._body);
-     //        this.ingresar();
-     //      }
+            element.disabled = false;
+            this.presentAlert("Error","Verifica tu código y nip");
+          }else{
+            localStorage.setItem("clave",this.codigo);
+            localStorage.setItem("nombre",data);
+            this.ingresar();
+          }
     })
 
           }

@@ -10,6 +10,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class FechascutPage implements OnInit {
 @Input() dia_cut;
 @Input() hora_cut;
+
 @Input() imagen;
     dia;
     fecha;

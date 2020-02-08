@@ -1,16 +1,16 @@
 <ion-header no-border>
-  <ion-toolbar style="margin-top:.90em;">
+  <ion-toolbar style="margin-top:2em;">
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+      <ion-back-button text="" style="color:yellow !important;" icon="arrow-round-back"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
 
-<ion-content  class="ios" >
+<ion-content   class="ios"  >
  <ion-toolbar style="padding: 2em;">
-  <ion-searchbar placeholder="Buscar película"
+  <ion-searchbar  class="searchbar-input" style="border-radius: 4em;" placeholder="Buscar película"
                  animated
                  debounce="700"
                  [value]="textoBuscar"
@@ -31,7 +31,7 @@
   <ion-list text-center *ngIf="peliculas.length === 0">     
     <ion-item *ngFor="let idea of ideas" style="padding: 0 2em;"
               (click)="textoBuscar = idea" class="animated  flash slow infinite">
-      <ion-label color="primary" text-center>{{ idea }}</ion-label>
+      <ion-label style="color:#004346;font-weight: bold;" text-center>{{ idea }}</ion-label>
     </ion-item>
 
   </ion-list>
@@ -41,15 +41,15 @@
     <ion-row>
       <ion-col size="6" *ngFor="let pelicula of peliculas"  >
 
-        <ion-card (click)="detalle( pelicula.id )" class="ios" >
-          <img [src]="pelicula.poster_path | imagen">
+        <ion-card style="max-height: 370px;min-height: 370px;background: #e6e7e8;" (click)="detalle( pelicula.id )" class="ios" >
+          <img style="max-height: 250px;min-height: 250px;" [src]="pelicula.poster_path | imagen">
 
           <ion-card-header>
-            <ion-card-subtitle> {{ pelicula.release_date | date:'dd/MM/yyyy'}} </ion-card-subtitle>
+            <ion-card-subtitle style="text-align: center;"> {{ pelicula.release_date | date:'dd/MM/yyyy'}} </ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
-            <h2>{{ pelicula.title }}</h2>
+            <h2 style="text-align: center;font-weight: bold;">{{ pelicula.title }}</h2>
           </ion-card-content>
 
         </ion-card>

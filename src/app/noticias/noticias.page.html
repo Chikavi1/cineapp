@@ -1,0 +1,22 @@
+<ion-header  no-border>
+  <ion-toolbar style="margin-top:1.5em;" color=‘light’ transparent >
+    <ion-buttons slot="start">
+      <ion-back-button text="" style="color:yellow;" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="animated delay-1s fadeIn slow" fullscreen  style="background: #f1f3f6;">
+  <img class="cover" style="margin-top: -7em;" src="https://i.ibb.co/g9DwHRF/ss-min.jpg"alt="">
+
+  <h1 style="text-align:center;margin-bottom:3em;margin-top:-3em;color: #f66a6b;font-weight: bold;font-size: 2em;">Eventos</h1>
+
+<div padding>
+	<div (click)="irEvento(event.title,event.image,event.description,event.fecha)" *ngFor="let event of events">
+	<p style="color:#f25a2b;display: block;overflow: hidden;
+  text-overflow: ellipsis;white-space: nowrap; width: 60%;font-weight: bold;" class="ion-text-capitalize">{{event.title}}<p>
+	<span style="color:#0d6d32fa;font-size:0.8em;font-weight: bold;">{{ event.fecha  }}</span>
+		<img style="position: relative;float: right;margin-top: -3.5em;border-radius: 1em;" src="{{event.image}}" width="130" alt="">
+	</div>
+</div>
+</ion-content>

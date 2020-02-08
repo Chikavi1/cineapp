@@ -9,6 +9,8 @@ import { SlideshowCutComponent } from './slideshow-cut/slideshow-cut.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ActorComponent } from './actor/actor.component';
 import { FechascutPage } from 'src/app/fechascut/fechascut.page';
+
+
 @NgModule({
   entryComponents: [
     DetalleComponent,

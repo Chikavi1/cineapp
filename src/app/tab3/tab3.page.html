@@ -1,12 +1,14 @@
 <ion-header no-border>
-  <ion-toolbar style="margin-top:1em;">
+  <ion-toolbar style="margin-top:2em;">
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+      <ion-back-button text="" style="color:yellow !important;" icon="arrow-round-back"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="voto > 0">
+    
   <h1 text-center style="margin-top: 1em;color:#F4A259">Votación</h1>
 <div padding  >
   
@@ -23,6 +25,12 @@
       <ion-col><h1 text-center style="color:#5B8E7D">{{voto.contador}}</h1></ion-col>
     </ion-row>
 </div>
+  </div>
  
+ <div *ngIf="!voto > 0">
+   <h1 text-center>Aun no hay suficientes votos</h1>
+   <p style="text-align:justify;padding: 1em;">En este apartado los alumnos podran elegir que peliculas les gustaria que pusieran en la cartelera.</p>
+   <p style="font-weight: bold;font-size:0.95em;text-align: justify;padding: 1em;">*Los administradores de la cineteca veran las opciones y ellos decidiran si la pelicula es apta para presenterla en el cine</p>
+ </div>
 
 </ion-content>

@@ -45,6 +45,10 @@
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
+.animated.delay-2s {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
 
 @-webkit-keyframes flash {
   from,
@@ -102,3 +106,11 @@
   animation-name: fadeIn;
 }
 
+.searchbar-input {
+    background: #FFF !important;
+    border-radius: 30px !important;
+    height: 40px !important;
+    max-width: 400px;
+    font-size: 1.1em !important;
+    border: 1px solid transparent;
+}

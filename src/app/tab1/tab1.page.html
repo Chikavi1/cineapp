@@ -14,7 +14,7 @@
   <ion-grid fixed>
     <ion-row padding >
       <ion-col size="8" >
-          <h3 >Cartelera <span style="color:green;font-weight: bold;">CUT</span></h3>
+          <h3 class="animated delay-1s fadeIn slow" >Cartelera <span style="color:green;font-weight: bold;">CUT</span></h3>
       </ion-col>
       <ion-col size="4" text-right>
         <h3>
@@ -31,9 +31,7 @@
  <!-- <h3>Cartelera en los cines</h3>
  
   -->
-  
-  
-  
+ 
   
   <ion-grid fixed>
     <ion-row>
@@ -52,20 +50,32 @@
         <h3 text-center>Comunidad CUT</h3>
       </ion-col>
     </ion-row>
-         <ion-item routerLink="/tab3">
-    <ion-label style="vertical-align: middle;display: inline-block;">
-      <ion-icon name="trophy" style="zoom:2.0;color:#dcdc00;vertical-align: middle;display: inline-block;"></ion-icon>
-      <b>Votaciones</b>
-    </ion-label>
-</ion-item>
-  
-  <ion-item routerLink="/guardados">
-    <ion-label style="vertical-align: middle;display: inline-block;">
+    
+    <ion-item routerLink="/eventos">
+      <ion-label style="vertical-align: middle;display: inline-block;">
+        <ion-icon name="paper" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
+        <b> Eventos</b>
+      </ion-label>
+    </ion-item>
 
-      <ion-icon name="bookmark" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
-      <b>Guardados</b>
-    </ion-label>
-</ion-item>
+
+    <ion-item routerLink="/tab3">
+      <ion-label style="vertical-align: middle;display: inline-block;">
+        <ion-icon name="trophy" style="zoom:2.0;color:#dcdc00;vertical-align: middle;display: inline-block;"></ion-icon>
+        <b>Votaciones</b>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item routerLink="/guardados">
+      <ion-label style="vertical-align: middle;display: inline-block;">
+        <ion-icon name="bookmark" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
+        <b>Guardados</b>
+      </ion-label>
+    </ion-item>
+
+    
+
+
 
   </ion-grid>
 <ion-button (click)="cerrar_sesion()"  shape="round" expand="full" color="danger" style="margin:  2em !important;">Cerrar Sesión</ion-button>

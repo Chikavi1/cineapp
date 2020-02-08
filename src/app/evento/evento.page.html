@@ -1,0 +1,36 @@
+<ion-header  no-border>
+  <ion-toolbar style="margin-top:2em;" color=‘light’ transparent >
+    <ion-buttons slot="start">
+      <ion-back-button text="" style="color:yellow !important;" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="animated delay-1s fadeIn slow" fullscreen style="background: #f1f1f1;">
+	<img class="cover" style="margin-top: -5.5em;width: 100%;" src="{{event[0].image}}"alt="">
+		<ion-row padding class="animated fadeIn slow delay-2s" >
+			<ion-col size="1">
+				
+			</ion-col>
+			<ion-col size="5">
+				<img  style="border:2px solid green;padding:.5em;border-radius: 50%;" src="https://moodle2.cutonala.udg.mx/pluginfile.php/1/theme_archaius/mobilelogo/1576524347/Logo%20CUT.png" alt="" width="70">
+			</ion-col>
+			
+			<ion-col size="5">
+				<b style="color:green;margin-top: 3em;">Centro universitario de Tonala</b>
+			</ion-col>
+			<ion-col size="1">
+				
+			</ion-col>
+		</ion-row>
+	
+
+	<p style="margin-top:-1.5em;text-align: center;font-weight:bold;padding: 1.6em;font-size: 1.7em;" class="ion-text-capitalize">{{event[0].title}}</p>
+	<p  text-justify style="margin-top: -4em;padding: 2em;" class="ion-text-capitalize">{{event[0].description}}</p>
+	<h4 text-center style="color:#004346;font-weight: bold;">Dia del evento</h4>
+	<p text-center style="color:#2660A4;font-weight: bold;margin-bottom: 4em;">{{fecha | date:'dd/MM/yyyy'}} {{hora}}</p>
+	<img style="width: 100%;" src="{{event[0].image}}" alt="">
+
+</ion-content>

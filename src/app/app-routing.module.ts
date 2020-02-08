@@ -8,7 +8,10 @@ const routes: Routes = [
   { path: 'tab3', loadChildren: './tab3/tab3.module#Tab3PageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'guardados', loadChildren: './guardados/guardados.module#GuardadosPageModule' },
-  { path: 'fechascut', loadChildren: './fechascut/fechascut.module#FechascutPageModule' }
+  { path: 'fechascut', loadChildren: './fechascut/fechascut.module#FechascutPageModule' },
+  { path: 'noticias', loadChildren: './noticias/noticias.module#NoticiasPageModule' },
+  { path: 'evento/:id', loadChildren: './evento/evento.module#EventoPageModule' },
+  { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' }
 ];
 @NgModule({
   imports: [

@@ -77,6 +77,17 @@ export class MoviesService {
     return this.http.get("https://assets.chikavi.com/api/votes/create?id_movie="+id_movie+"&code="+code);
   }
 
+  getEvents(){
+    return this.http.get("http://assets.chikavi.com/api/events");
+  }
+
+  getEvent(id_event){
+    return this.http.get("http://assets.chikavi.com/api/events/"+id_event);
+  }
+
+
+
+
   getPeliculaDetalle( id: string ) {
     return this.ejecutarQuery<PeliculaDetalle>(`/movie/${ id }?a=1`);
   }

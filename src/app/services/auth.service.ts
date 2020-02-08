@@ -9,6 +9,6 @@ export class AuthService {
 
   login(codigo,nip):any{
     //let headers = new Headers();
-    return this.http.get("https://api.chikavi.com/api/authchikavi?codigo="+codigo+"&nip="+nip,{responseType: 'text'});
+    return this.http.get("https://ventasuni.com/api/authchikavi?codigo="+codigo+"&nip="+nip,{responseType: 'text'});
   }
 }

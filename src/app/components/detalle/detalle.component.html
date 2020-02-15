@@ -26,14 +26,14 @@
     </div>
     <div *ngIf="pelicula.title">
 
-  <img [src]="pelicula.backdrop_path | imagen" class="cover" *ngIf="pelicula.backdrop_path">
+  <img [src]="pelicula.backdrop_path | imagen" style="width: 100%;" class="cover" *ngIf="pelicula.backdrop_path">
 <img src="https://fakeimg.pl/1200x600/0B1B2D/?text=%20" class="" *ngIf="!pelicula.backdrop_path">
   <ion-grid>
     <ion-row>
       <ion-col size="4"></ion-col>
       <ion-col size="4" class="poster-detalle-sobre">
 
-        <ion-card class="poster">
+        <ion-card class="poster" style="border-radius: 1em;">
           <img [src]="pelicula.poster_path | imagen" 
                class="poster"
                *ngIf="pelicula.poster_path">
@@ -75,13 +75,13 @@
 
   </ion-grid>
 
-  <ion-row *ngIf="dia_cut">
+  <ion-row *ngIf="dia_cut" style="color:white;background: #1c1d2f;padding:1em;margin-bottom: 2em;">
     <ion-col></ion-col>
-    <ion-col style="color:#17202F;" text-center>
-      <div (click)="mostrarfechas(dia_cut,hora_cut,pelicula.backdrop_path)">
+    <ion-col style="color:white;" text-center class="animated delay-2s heartBeat slow">
+      <div (click)="mostrarfechas(dia_cut,hora_cut,pelicula.poster_path,pelicula.title)">
         
-      <h2 >Fechas en carteleraCUT</h2>
-      <ion-icon name="calendar" routerLink="/guardados" style="zoom:3.0;color:#17202F;"></ion-icon>
+      <p >Fechas en carteleraCUT</p>
+      <ion-icon name="calendar"   routerLink="/guardados" style="zoom:3.0;color:white;"></ion-icon>
       <p><b>{{dia_cut}}</b></p>
       <p>{{hora_cut}}</p>
       </div>
@@ -140,7 +140,7 @@
   <ion-slides [options]="slideOptActores">
     <ion-slide *ngFor="let actor of actores">
       
-      <ion-card class="card-actor animated delay-1s fadeIn slow" (click)="showActor(actor.id)">
+      <ion-card style="background:#25303c;color:white;border-radius: 2em;" class="card-actor animated delay-1s fadeIn slow" (click)="showActor(actor.id)">
         <img *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
         <img *ngIf="actor.profile_path" [src]="actor.profile_path | imagen">
 
@@ -163,9 +163,9 @@
   <ion-slides [options]="slideOptSimilares">
     <ion-slide *ngFor="let similar of similares">
       
-      <ion-card class="card-actor animated delay-1s fadeIn slow" (click)="showMovie(similar.id)">
+      <ion-card style="border-radius: 2em;" class="card-actor animated delay-1s fadeIn slow" (click)="showMovie(similar.id)">
         <img *ngIf="!similar.backdrop_path" src="/assets/no-avatar.jpg">
-        <img *ngIf="similar.backdrop_path" [src]="similar.backdrop_path | imagen">
+        <img *ngIf="similar.backdrop_path" class="cover" [src]="similar.backdrop_path | imagen">
 
         <ion-label class="actor-name"><b> {{ similar.title }}</b></ion-label>
 
@@ -187,7 +187,7 @@
       <ion-col size="4"></ion-col>
       <ion-col size="4" class="poster_content">
 
-        <ion-card class="poster">
+        <ion-card class="poster" style="border-radius: 1em;">
         </ion-card>
 
       </ion-col>

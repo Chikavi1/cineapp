@@ -1,6 +1,6 @@
 <ion-header no-border>
-  <ion-toolbar style="margin-top:1.2em;">
-    <ion-title>Fecha</ion-title>
+  <ion-toolbar style="margin-top:1.2em;" color=‘light’ transparent >
+    <ion-title style="color:yellow !important;">Fecha</ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="regresar()">
         <ion-icon slot="start" name="arrow-round-back"  style="color:yellow !important;"></ion-icon>
@@ -9,9 +9,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content  text-center padding>
+
+
+
+
+<ion-content fullscreen  text-center>
+
+<img src="https://i.ibb.co/7ySTGkX/imagecover-min.jpg" class="triangulo" style="margin-top: -5.5em;">
+ <ion-grid style="margin-top: -10em;">
+    <ion-row>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4" class="poster-detalle-sobre">
+
+        <ion-card class="poster" style="border-radius: 1em;">
+          <img [src]="imagen"  class="poster"    >
+        </ion-card>
+
+      </ion-col>
+    
+    </ion-row>
+  </ion-grid>
+
+<p text-center style="font-weight: bold;" >{{titulo}}</p>
 	<ion-icon name="calendar" style="zoom:3.0;color:brown;"></ion-icon>
-	<p style="font-size: .95em;font-weight: bold;color:brown;">Dia</p>
-	<h3 style="color:brown;">{{fecha}}</h3>
-	<ion-button color="success" (click)="presentActionSheet()"  id="btnrecordar"> Recordarme</ion-button>
+	<p style="color:brown;" class="ion-text-capitalize">{{fecha}}</p>
+
+<ion-button padding   shape="round" expand="block"  fill="outline" (click)="presentActionSheet()"  id="btnrecordar"> Recordarme</ion-button>
+
 </ion-content>

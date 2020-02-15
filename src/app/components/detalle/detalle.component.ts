@@ -30,7 +30,7 @@ export class DetalleComponent implements OnInit {
   video;
   videoUrl;
   slideOptActores = {
-    slidesPerView: 2.97,
+    slidesPerView: 2.2,
     freeMode: true,
     spaceBetween: 0
   };
@@ -54,14 +54,15 @@ slideOptSimilares  = {
 
                 }
             
-   async mostrarfechas(dia_cut,hora_cut,imagen){
+   async mostrarfechas(dia_cut,hora_cut,imagen,titulo){
 
       const modal = await this.modalCtrl.create({
       component: FechascutPage,
       componentProps: {
         dia_cut,
         hora_cut,
-        imagen
+        imagen,
+        titulo
       }
     });
 

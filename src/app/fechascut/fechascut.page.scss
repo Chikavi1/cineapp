@@ -1,0 +1,10 @@
+.triangulo{
+    backgroun-color:red;
+    width: 100%;
+    height: 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* The points are: centered top, left bottom, right bottom */
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+}
+

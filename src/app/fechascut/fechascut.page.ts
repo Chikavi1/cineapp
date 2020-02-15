@@ -10,8 +10,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class FechascutPage implements OnInit {
 @Input() dia_cut;
 @Input() hora_cut;
-
+@Input() titulo;
 @Input() imagen;
+
     dia;
     fecha;
   constructor(private modalCtrl: ModalController,
@@ -22,6 +23,7 @@ export class FechascutPage implements OnInit {
   }
 
   ngOnInit() {
+    
     this.imagen = "https://image.tmdb.org/t/p/w500"+this.imagen;
   	this.dia = new Date(this.dia_cut);
     console.log(this.dia);

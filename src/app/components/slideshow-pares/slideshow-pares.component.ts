@@ -14,7 +14,7 @@ export class SlideshowParesComponent implements OnInit {
   @Output() cargarMas = new EventEmitter();
 
   slideOpts = {
-    slidesPerView: 3.3,
+    slidesPerView: 3.1,
     freeMode: true,
     spaceBetween: -10
   };

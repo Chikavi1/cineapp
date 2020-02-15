@@ -28,3 +28,15 @@
   }
 
 } 
+
+.triangulo{
+    backgroun-color:red;
+    width: 100%;
+    height: 70%;
+    background: url("https://images.unsplash.com/photo-1575819974033-21c1faf2adf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=369&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* The points are: centered top, left bottom, right bottom */
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+}
+

@@ -77,7 +77,7 @@ export class FechascutPage implements OnInit {
 
   	this.localNotifications.schedule({
 	   title: 'Aviso de pelicula',
-     text: 'La pelicula empieza en '+ hora +' hr',
+     text: this.titulo +' \n Empieza en '+ hora +' hr',
 	   smallIcon: 'res://calendar',
      icon: this.imagen,
      attachments: [this.imagen],

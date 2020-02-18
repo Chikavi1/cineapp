@@ -79,7 +79,7 @@ export class FechascutPage implements OnInit {
 	   title: 'Aviso de pelicula',
      text: 'La pelicula empieza en '+ hora +' hr',
 	   smallIcon: 'res://calendar',
-     icon: 'https://image.flaticon.com/icons/png/512/1179/1179069.png',
+     icon: this.imagen,
      attachments: [this.imagen],
      lockscreen : true,
      priority: 2,

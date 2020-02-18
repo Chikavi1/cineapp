@@ -11,18 +11,19 @@ dia;
 fecha;
 hora;
 @Input() title;
+id;
   event:any = [];
   constructor(private EventService: MoviesService,private route: ActivatedRoute) { 
       
-   console.log(this.route.snapshot.paramMap.get('id'));
+   this.id =  this.route.snapshot.paramMap.get('id');
 
   	 
   	
-    this.EventService.getEvents().subscribe( data => {
+    this.EventService.getEvent(this.id).subscribe( data => {
       console.log("eventos cut")
      this.event = data;
-     this.fecha = this.event[0].fecha;
-     this.hora = this.event[0].hora;
+     this.fecha = this.event.fecha;
+     this.hora = this.event.hora;
      console.log(data);
     });
 

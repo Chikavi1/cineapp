@@ -90,8 +90,10 @@ export class FechascutPage implements OnInit {
 	   sound: 'https://notificationsounds.com/soundfiles/9cf81d8026a9018052c429cc4e56739b/file-sounds-1145-when.mp3',
      vibrate: true,
      autoClear: true,
-     foreground: true
-
+     foreground: true,
+     actions: [
+      { id: 'yes', title: 'Cerrar' }
+      ]
 	});
   }
 

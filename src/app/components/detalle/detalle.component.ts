@@ -24,7 +24,7 @@ export class DetalleComponent implements OnInit {
   oculto = 150;
   estrella = 'star-outline';
   mostrar = false;
-
+  usuario_verificado;
   similares = {};
   director;
   video;
@@ -44,6 +44,7 @@ slideOptSimilares  = {
                private modalCtrl: ModalController,
                private dataLocal: DataLocalService,
                public toastController: ToastController,public sanitizer: DomSanitizer ) {
+            this.usuario_verificado  = localStorage.getItem("clave");
             var dia = new Date(this.dia_cut);
             console.log(this.dia_cut);
 
@@ -92,11 +93,10 @@ slideOptSimilares  = {
 
   async showMovie(id){
      this.moviesService.getPeliculaDetalle(id).subscribe( resp => {
-          console.log("peli simi");
-          console.log( resp );
+          
         });
 
-     this.regresar();
+    
 
       const modal = await this.modalCtrl.create({
       component: DetalleComponent,

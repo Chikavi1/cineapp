@@ -22,7 +22,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      if(localStorage.getItem("clave")){
+      if(localStorage.getItem("login")){
         this.router.navigateByUrl('/tab1');
       }else{
         this.router.navigateByUrl('/login');

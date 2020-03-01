@@ -16,8 +16,11 @@ export class Tab1Page implements OnInit {
   populares: Pelicula[] = [];
   nombre;
   peliculas;
+  usuario_verificado;
+
   constructor( private moviesService: MoviesService,private modalCtrl: ModalController,public navCtrl: NavController) {
     this.nombre = localStorage.getItem("nombre");
+    this.usuario_verificado  = localStorage.getItem("clave");
   }
 
  async verDetalle( id: string ) {
@@ -46,6 +49,7 @@ doRefresh(event) {
 
 cerrar_sesion(){
   this.navCtrl.navigateRoot("/login");
+  localStorage.removeItem("login");
   localStorage.removeItem("clave");
   localStorage.removeItem("nombre");
 }

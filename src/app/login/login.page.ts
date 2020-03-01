@@ -19,6 +19,7 @@ export class LoginPage implements OnInit {
    ingresar(){
 
     this.navCtrl.navigateRoot('/tab1');
+    localStorage.setItem("login",true);
   }
 
   login(){	

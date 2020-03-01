@@ -115,11 +115,13 @@
           </ion-buttons>
         </ion-col>
         <ion-col>
-         <ion-buttons (click)="proponer(pelicula.id)">
+
+         <ion-buttons (click)="proponer(pelicula.id)" *ngIf="usuario_verificado">
           <ion-button style="color:orange;">
              <p text-center>Proponer</p>
           </ion-button>
          </ion-buttons>
+
         </ion-col>
         <ion-col>
            <div *ngIf="videoUrl">

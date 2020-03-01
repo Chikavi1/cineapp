@@ -78,11 +78,11 @@ export class MoviesService {
   }
 
   getEvents(){
-    return this.http.get("http://assets.chikavi.com/api/events");
+    return this.http.get("https://assets.chikavi.com/api/events");
   }
 
   getEvent(id_event){
-    return this.http.get("http://assets.chikavi.com/api/events/"+id_event);
+    return this.http.get("https://assets.chikavi.com/api/events/"+id_event);
   }
 
 

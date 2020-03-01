@@ -1,5 +1,12 @@
-<ion-content class="card-background-page">
+<ion-header  no-border>
+  <ion-toolbar style="margin-top:1.5em;" color=‘light’ transparent >
+    <ion-buttons slot="start">
+      <ion-back-button text="" style="color:yellow;" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content class="animated delay-1s fadeIn slow" fullscreen  style="background: #f1f3f6;">
   <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
@@ -8,75 +15,27 @@
       refreshingText="Actualizando...">
     </ion-refresher-content>
   </ion-refresher>
-
-  <ion-grid fixed>
-    <ion-row padding >
-      <ion-col size="8" >
-          <h3 class="animated delay-1s fadeIn slow" >Cartelera <span style="color:green;font-weight: bold;">CUT</span></h3>
-      </ion-col>
-      <ion-col size="4" text-right>
-        <h3>
-          <ion-icon routerLink="/guardados" name="bookmark" style="color:#265B75;zoom:1.4;vertical-align: middle;display: inline-block;"></ion-icon>
-          <ion-icon name="search" style="color:#17202D;zoom:1.4;vertical-align: middle;display: inline-block" routerLink="/tab2">
-          </ion-icon>
-        </h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-  <app-slideshow-cut [peliculas]="peliculas"></app-slideshow-cut>
- <!-- <h3>Cartelera en los cines</h3>
- 
-  -->
- 
   
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3 text-center>Populares</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <img class="cover" style="margin-top: -7em;" src="https://image.freepik.com/foto-gratis/albanileria-trabajador-construccion-construyendo-pared-ladrillos_1150-14756.jpg"alt="">
+
   
-  <app-slideshow-pares [peliculas]="populares"
-                       (cargarMas)="cargarMas()"></app-slideshow-pares>
-  
- <ion-grid fixed >
-    <ion-row>
-      <ion-col>
-        <h3 text-center>Comunidad CUT</h3>
-      </ion-col>
-    </ion-row>
-    
-    <ion-item routerLink="/eventos">
-      <ion-label style="vertical-align: middle;display: inline-block;">
-        <ion-icon name="paper" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
-        <b> Eventos</b>
-      </ion-label>
-    </ion-item>
+  <h1 style="text-align:center;margin-bottom:2em;color: #f66a6b;font-weight: bold;font-size: 1.5em;">Albañeleria</h1>
 
+<div padding>
+  <div routerLink="/noticias" >
+  <p style="color:#f25a2b;display: block;overflow: hidden;
+  text-overflow: ellipsis;white-space: nowrap; width: 60%;font-weight: bold;" class="ion-text-capitalize">Luis Rojas<p>
+  <span style="color:#0d6d32fa;font-size:0.8em;font-weight: bold;">4.4 km</span>
+    <img style="position: relative;float: right;margin-top: -3.5em;border-radius: 1em;" src="https://cdn.iste.org/www-root/2018-09/img_id_957.png?nbCqrYTfCW8I845shrT4WbfhPROz1rX_" width="100" alt="">
+  </div>
 
-    <ion-item routerLink="/tab3">
-      <ion-label style="vertical-align: middle;display: inline-block;">
-        <ion-icon name="trophy" style="zoom:2.0;color:#dcdc00;vertical-align: middle;display: inline-block;"></ion-icon>
-        <b>Votaciones</b>
-      </ion-label>
-    </ion-item>
-  
-    <ion-item routerLink="/guardados">
-      <ion-label style="vertical-align: middle;display: inline-block;">
-        <ion-icon name="bookmark" style="zoom:2.0;color:#265B75;vertical-align: middle;display: inline-block;"></ion-icon>
-        <b>Guardados</b>
-      </ion-label>
-    </ion-item>
+  <div routerLink="/noticias" style="margin-top: 3em;" >
+  <p style="color:#f25a2b;display: block;overflow: hidden;
+  text-overflow: ellipsis;white-space: nowrap; width: 60%;font-weight: bold;" class="ion-text-capitalize">Luis Rojas<p>
+  <span style="color:#0d6d32fa;font-size:0.8em;font-weight: bold;">4.4 km</span>
+    <img style="position: relative;float: right;margin-top: -3.5em;border-radius: 1em;" src="https://cdn.iste.org/www-root/2018-09/img_id_957.png?nbCqrYTfCW8I845shrT4WbfhPROz1rX_" width="100" alt="">
+  </div>
 
-    
+</div>
 
-
-
-  </ion-grid>
-<ion-button (click)="cerrar_sesion()"  shape="round" expand="full" color="danger" style="margin:  2em !important;">Cerrar Sesión</ion-button>
 </ion-content>
- 
-

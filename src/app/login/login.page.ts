@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
    ingresar(){
 
     this.navCtrl.navigateRoot('/tab1');
-    localStorage.setItem("login",true);
+    localStorage.setItem("login","true");
   }
 
   login(){	
@@ -36,7 +36,8 @@ export class LoginPage implements OnInit {
             element.disabled = false;
             this.presentAlert("Error","Verifica tu código y nip");
           }else{
-            this.presentAlert("Bienvenido ", data);
+            data = "¡HOLA "+data+ " !";
+            this.presentAlert("Bienvenido ",data);
             localStorage.setItem("clave",this.codigo);
             localStorage.setItem("nombre",data);
             this.ingresar();
